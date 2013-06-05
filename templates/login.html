@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chocolate, Yum!!!</title>
+		<style ="text/css">
+		body {
+			font-family: sans-serif;
+			width: 800px;
+			margin: 0 auto;
+			padding: 10px;
+			position: relative;
+		}
+		
+		.error {
+			color: red
+		}
+		
+		label {
+			display: block;
+			font-size: 20px;
+		}
+		
+		input[type=text] {
+			width: 400px;
+			height: 20px;
+			padding: 2px;
+		}
+		
+		.page_editor {
+			width: 760px;
+			height: 400px;
+			font-size:17px;
+			font-family: monospace;
+		}
+		.toolbar {
+			position: relative;
+			right: 0px;
+			color: gray;
+		}
+	</style>
+	</head>
+<body>
+	<h2>Signup for the Wiki!</h2>
+	<form method="post">
+		<table class="loginTable" border="10px">
+			<tr>
+				<td class="label">
+				Username
+				</td>
+				<td>
+					<input type="text" name="username" value="{{username}}">
+				</td>
+				
+			</tr>
+			<tr>
+				<td class="label">
+				Password
+				</td>
+				<td>
+					<input type="password" name="password">
+				</td>
+				
+			</tr>
+			<tr>
+				<td>
+				<input type="submit" value="Submit">
+				</td>
+				<td class="error">
+				{{error}}
+				</td>
+			</tr>
+		</table>
+		
+			
+	</form>
+</body>
+</html>

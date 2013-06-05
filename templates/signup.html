@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Wiki Signup</title>
+		<style ="text/css">
+		body {
+			font-family: sans-serif;
+			width: 800px;
+			margin: 0 auto;
+			padding: 10px;
+			position: relative;
+		}
+		
+		.error {
+			color: red
+		}
+		
+		label {
+			display: block;
+			font-size: 20px;
+		}
+		
+		input[type=text] {
+			width: 400px;
+			height: 20px;
+			padding: 2px;
+		}
+		
+		.page_editor {
+			width: 760px;
+			height: 400px;
+			font-size:17px;
+			font-family: monospace;
+		}
+		.toolbar {
+			position: relative;
+			right: 0px;
+			color: gray;
+		}
+	</style>
+	</head>
+<body>
+	<h2>Make an account for the super-simple Wiki:</h2>
+	<p>Already have an account? <a href="/login">Login</a>
+	<form method="post">
+		<table class="loginTable" border="10px">
+			<tr>
+				<td class="label">
+				Username
+				</td>
+				<td>
+					<input type="text" name="username" value="{{username}}">
+				</td>
+				<td class="error">
+				{{uerror}}
+				</td>
+			</tr>
+			<tr>
+				<td class="label">
+				Password
+				</td>
+				<td>
+					<input type="password" name="password">
+				</td>
+				<td class="error">
+				{{perror}}
+				</td>
+			</tr>
+			<tr>
+				<td class="label">
+				Verify Password
+				</td>
+				<td>
+					<input type="password" name="verify">
+				</td>
+				<td class="error">
+				{{verror}}
+				</td>
+			</tr>
+			<tr>
+				<td class="label">
+				Email (optional)
+				</td>
+				<td>
+					<input type="text" name="email" value="{{email}}">
+				</td>
+				<td class="error">
+				{{eerror}}
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<input type="submit" value="Submit">
+				</td>
+			</tr>
+		</table>
+		
+			
+	</form>
+</body>
+</html>

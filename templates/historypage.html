@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chocolate, Yum!!!</title>
+		<style ="text/css">
+		body {
+			font-family: sans-serif;
+			width: 800px;
+			margin: 0 auto;
+			padding: 10px;
+			position: relative;
+		}
+		
+		.error {
+			color: red
+		}
+		
+		label {
+			display: block;
+			font-size: 20px;
+		}
+		
+		input[type=text] {
+			width: 400px;
+			height: 20px;
+			padding: 2px;
+		}
+		
+		.page_editor {
+			width: 760px;
+			height: 400px;
+			font-size:17px;
+			font-family: monospace;
+		}
+		.toolbar {
+			position: relative;
+			left: 620px;
+			color: gray;
+		}
+		table, td {
+			border: none;
+			text-align: left;
+		}
+		th {
+			text-align: left;
+		}
+		table {
+			width: 800px;
+			
+		}
+	</style>
+	</head>
+<body>
+	{{toolbar|safe}}
+	<form method="post">
+		<table class="history_table" border="1px">
+			<tr>
+				<th >
+				Date Submitted
+				</th>
+				<th>
+				HTML preview
+				</th>
+				<th>
+				view
+				</th>
+				<th>
+				edit
+				</th>
+			</tr>
+			{% for page in pages %}
+			<tr>
+				<td >
+				{{page[0]}}
+				</td>
+				<td>
+				{{page[1]}}
+				</td>
+				<td>
+				{{page[2]|safe}}
+				</td>
+				<td>
+				{{page[3]|safe}}
+				</td>
+			</tr>
+			{% endfor %}
+		</table>
+		
+			
+	</form>
+</body>
+</html>
