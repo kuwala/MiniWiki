@@ -69,6 +69,13 @@ def validate_pw(pw, h):
 	salt = h.split(",")[1]
 	hash = make_pw_hash(pw, salt)
 	return hash == h
+
+def username_taken(username):
+	users = db.GqlQuery("SELECT * FROM User WHERE username =:1 LIMIT 1", username)
+	user = users.get()
+	return (user <> None)  # If the Query returns a user with username than None then that user must exist
+
+	
 	
 class Handler(webapp2.RequestHandler):
 		
@@ -90,11 +97,14 @@ class Welcome(webapp2.RequestHandler):
 			self.response.out.write(welcome_page % { "username": username } )
 		else:
 			self.redirect("/signup")
+			
+
+
 
 class Signup(Handler):
 	def render_page(self, username="", email="", uerror="", perror="", verror="", eerror=""):
 		#username = "cookie"
-		self.render("signup.html", username=username, email=email, uerror=uerror, 
+		self.render("signup2.html", username=username, email=email, uerror=uerror, 
 					perror=perror, verror=verror, eerror=eerror)
 	def get(self):
 		self.render_page()
@@ -111,6 +121,9 @@ class Signup(Handler):
 		
 		if not valid_username(username):
 			uerror = "This is not a valid Username."
+			okay = False
+		if username_taken(username):
+			uerror = "This username is taken."
 			okay = False
 		if not valid_password(password):
 			perror = "That was not a valid Password."
@@ -145,6 +158,7 @@ class Login(Handler):
 		if username <> "" and password <> "":
 			users = db.GqlQuery("SELECT * FROM User WHERE username =:1 LIMIT 1",username)
 			user = users.get()
+			
 			if(user <> None): # check if user exists in the db
 				if validate_pw(password, user.password):
 					self.response.out.write("valid")
@@ -187,7 +201,7 @@ def make_toolbar(user="",editing=False, page_link=""):
 	
 class EditPage(Handler):
 	def render_page(self, toolbar="", page_html=""):
-		self.render("editpage.html", toolbar=toolbar, page_html=page_html)
+		self.render("101.html", toolbar=toolbar, page_html=page_html)
 		
 	def get(self, page_url):
 		#view(or edit)|history spez(logout)

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bootstrap 101 Template</title>
+    <title>{{title}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	 <!-- Bootstrap -->
-	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<style type="text/css">
       body {
         padding-top: 60px;
@@ -12,13 +12,13 @@
       }
     </style>
 	
-	<link href="css/bootstrap-responsive.css" rel="stylesheet">
-	<link href="css/myown.css" rel="stylesheet">
+	<link href="../css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="../css/myown.css" rel="stylesheet">
 	
   </head>
   <body>
 	
-	
+	{{toolbar|safe}}
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -28,7 +28,7 @@
             <span class="icon-bar"></span>
 			
           </button>
-          <a class="brand" href="#">Japanese Benkyou</a>
+          <a class="brand" href="#">miniWiki</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><a href="#">Home</a></li>
@@ -63,9 +63,12 @@
       <div class="hero-unit">
         <h1>HTML!</h1>
 		<br>
-		<p><input type="text" class="span4" placeholder="Page Title" > </p>
-		<p><textarea class="htmlinput span10">Your HTML goes here. </textarea> </p>
-		<p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+		<form method="post">
+			<p><input type="text" class="span4" placeholder="Page Title" > </p>
+			<p><textarea class="htmlinput span10" name="content">{{page_html}} </textarea> </p>
+			<p><button type="submit" class="btn btn-large btn-primary" >Submit &raquo;</button></p>
+			<p class="text-error">{{error}}</p>
+		</form>
       </div>
 
       <hr>
