@@ -1,46 +1,24 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Wiki Signup</title>
-		<style ="text/css">
-		body {
-			font-family: sans-serif;
-			width: 800px;
-			margin: 0 auto;
-			padding: 10px;
-			position: relative;
-		}
-		
-		.error {
-			color: red
-		}
-		
-		label {
-			display: block;
-			font-size: 20px;
-		}
-		
-		input[type=text] {
-			width: 400px;
-			height: 20px;
-			padding: 2px;
-		}
-		
-		.page_editor {
-			width: 760px;
-			height: 400px;
-			font-size:17px;
-			font-family: monospace;
-		}
-		.toolbar {
-			position: relative;
-			right: 0px;
-			color: gray;
-		}
-	</style>
-	</head>
-<body>
-
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+	
+	<link href="css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="css/myown.css" rel="stylesheet">
+	
+  </head>
+  <body>
+	
+	
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -79,62 +57,25 @@
       </div>
     </div>
 	
-	<h2>Make an account for the super-simple Wiki:</h2>
-	<p>Already have an account? <a href="/login">Login</a>
-	<form method="post">
-		<table class="loginTable" border="10px">
-			<tr>
-				<td class="label">
-				Username
-				</td>
-				<td>
-					<input type="text" name="username" value="{{username}}">
-				</td>
-				<td class="error">
-				{{uerror}}
-				</td>
-			</tr>
-			<tr>
-				<td class="label">
-				Password
-				</td>
-				<td>
-					<input type="password" name="password">
-				</td>
-				<td class="error">
-				{{perror}}
-				</td>
-			</tr>
-			<tr>
-				<td class="label">
-				Verify Password
-				</td>
-				<td>
-					<input type="password" name="verify">
-				</td>
-				<td class="error">
-				{{verror}}
-				</td>
-			</tr>
-			<tr>
-				<td class="label">
-				Email (optional)
-				</td>
-				<td>
-					<input type="text" name="email" value="{{email}}">
-				</td>
-				<td class="error">
-				{{eerror}}
-				</td>
-			</tr>
-			<tr>
-				<td>
-				<input type="submit" value="Submit">
-				</td>
-			</tr>
-		</table>
-		
-			
-	</form>
-</body>
+	    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>HTML!</h1>
+		<br>
+		<p><input type="text" class="span4" placeholder="Page Title" > </p>
+		<p><textarea class="htmlinput span10">Your HTML goes here. </textarea> </p>
+		<p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2013</p>
+      </footer>
+
+    </div> <!-- /container -->
+	
+	
+  </body>
 </html>
