@@ -104,7 +104,7 @@ class Welcome(webapp2.RequestHandler):
 class Signup(Handler):
 	def render_page(self, username="", email="", uerror="", perror="", verror="", eerror=""):
 		#username = "cookie"
-		self.render("signup2.html", username=username, email=email, uerror=uerror, 
+		self.render("signup.html", username=username, email=email, uerror=uerror, 
 					perror=perror, verror=verror, eerror=eerror)
 	def get(self):
 		self.render_page()
@@ -201,7 +201,7 @@ def make_toolbar(user="",editing=False, page_link=""):
 	
 class EditPage(Handler):
 	def render_page(self, toolbar="", page_html=""):
-		self.render("101.html", toolbar=toolbar, page_html=page_html)
+		self.render("editpage.html", toolbar=toolbar, page_html=page_html)
 		
 	def get(self, page_url):
 		#view(or edit)|history spez(logout)
@@ -244,7 +244,9 @@ class EditPage(Handler):
 			else:
 				new_page = Page(url = url, page_html = page_html, creator_id = creator_id, version=1)
 			new_page.put()
-				
+			#logging.error("posting a page html")
+			#logging.error(str(page_url))
+			#I also suspect there might be a memcacheing error since it dosent refresh the page?
 			self.redirect(page_url)
 		else:
 			self.redirect("/signup")
